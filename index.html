@@ -1,0 +1,1717 @@
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Ciência da Riqueza | Descubra o seu Perfil Financeiro</title>
+
+<meta name="description" content="Faça o diagnóstico do seu perfil financeiro e descubra como A Ciência da Riqueza pode ajudar você a transformar sua relação com o dinheiro.">
+
+<style>
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root{
+    --gold:#f5c542;
+    --gold2:#ffdf6b;
+    --black:#080808;
+    --dark:#111111;
+    --dark2:#181818;
+    --white:#ffffff;
+    --gray:#b8b8b8;
+    --green:#25d366;
+    --red:#ff4b4b;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(245,197,66,.07);
+    filter:blur(100px);
+    top:-200px;
+    left:-200px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:rgba(245,197,66,.05);
+    filter:blur(100px);
+    right:-200px;
+    bottom:-200px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:#222;
+    z-index:9999;
+}
+
+.progress-bar{
+    height:100%;
+    width:20%;
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    transition:.5s ease;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    padding:25px 7%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+    width:100%;
+}
+
+.stage{
+    display:none;
+    min-height:calc(100vh - 80px);
+    padding:70px 7%;
+    align-items:center;
+    justify-content:center;
+    animation:fadeIn .6s ease;
+}
+
+.stage.active{
+    display:flex;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 17px;
+    border:1px solid rgba(245,197,66,.5);
+    border-radius:100px;
+    color:var(--gold);
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:22px;
+    background:rgba(245,197,66,.06);
+}
+
+h1{
+    font-size:clamp(38px,7vw,75px);
+    line-height:1.03;
+    margin-bottom:25px;
+    letter-spacing:-3px;
+}
+
+h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:var(--gray);
+    font-size:18px;
+    max-width:720px;
+    margin:0 auto 35px;
+}
+
+.small-text{
+    color:#888;
+    font-size:13px;
+    margin-top:15px;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:none;
+    cursor:pointer;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:17px 30px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:800;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.btn-primary{
+    color:#080808;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    box-shadow:0 12px 35px rgba(245,197,66,.2);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 18px 45px rgba(245,197,66,.3);
+}
+
+.btn-secondary{
+    color:#fff;
+    background:#222;
+    border:1px solid #333;
+}
+
+.btn-secondary:hover{
+    background:#2b2b2b;
+}
+
+.btn-large{
+    width:100%;
+    padding:20px;
+    font-size:18px;
+}
+
+/* =========================================================
+   DIAGNÓSTICO
+========================================================= */
+
+.quiz-box{
+    max-width:800px;
+    margin:auto;
+}
+
+.quiz-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.quiz-header h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.quiz-header p{
+    color:var(--gray);
+}
+
+.question{
+    display:none;
+    background:linear-gradient(145deg,#141414,#0e0e0e);
+    border:1px solid #292929;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 20px 70px rgba(0,0,0,.3);
+}
+
+.question.active{
+    display:block;
+    animation:fadeIn .4s ease;
+}
+
+.question-number{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.question h3{
+    font-size:25px;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option{
+    width:100%;
+    padding:17px;
+    text-align:left;
+    background:#1c1c1c;
+    color:#fff;
+    border:1px solid #303030;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.25s ease;
+}
+
+.option:hover{
+    border-color:var(--gold);
+    transform:translateX(4px);
+}
+
+.option.selected{
+    background:rgba(245,197,66,.13);
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+.quiz-controls{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-top:25px;
+}
+
+.quiz-progress{
+    margin-bottom:20px;
+}
+
+.quiz-progress-top{
+    display:flex;
+    justify-content:space-between;
+    color:#888;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.quiz-progress-bar{
+    height:6px;
+    background:#252525;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.quiz-progress-fill{
+    width:20%;
+    height:100%;
+    background:var(--gold);
+    transition:.4s ease;
+}
+
+/* =========================================================
+   RESULTADO
+========================================================= */
+
+.result-card{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    padding:45px;
+    border:1px solid #2e2e2e;
+    background:linear-gradient(145deg,#161616,#0e0e0e);
+    border-radius:25px;
+}
+
+.result-icon{
+    width:75px;
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:rgba(245,197,66,.12);
+    font-size:35px;
+}
+
+.result-card h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.result-card h2 span{
+    color:var(--gold);
+}
+
+.result-card p{
+    color:var(--gray);
+    font-size:17px;
+    margin-bottom:25px;
+}
+
+.insight{
+    padding:20px;
+    background:#1c1c1c;
+    border-left:3px solid var(--gold);
+    text-align:left;
+    border-radius:10px;
+    margin:25px 0;
+}
+
+.insight strong{
+    color:var(--gold);
+}
+
+/* =========================================================
+   EBOOK
+========================================================= */
+
+.book-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.book-cover{
+    min-height:540px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.book{
+    width:330px;
+    min-height:470px;
+    background:linear-gradient(145deg,#191919,#050505);
+    border:2px solid var(--gold);
+    border-radius:5px 15px 15px 5px;
+    padding:45px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:
+        20px 25px 50px rgba(0,0,0,.6),
+        0 0 50px rgba(245,197,66,.08);
+    transform:perspective(900px) rotateY(-10deg);
+    transition:.5s ease;
+}
+
+.book:hover{
+    transform:perspective(900px) rotateY(0deg) translateY(-8px);
+}
+
+.book-top{
+    color:var(--gold);
+    font-weight:bold;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.book-title{
+    font-size:43px;
+    line-height:1;
+    font-weight:900;
+}
+
+.book-title span{
+    color:var(--gold);
+}
+
+.book-bottom{
+    color:#aaa;
+    font-size:13px;
+}
+
+.book-content h2{
+    font-size:45px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.book-content h2 span{
+    color:var(--gold);
+}
+
+.book-content > p{
+    color:var(--gray);
+    margin-bottom:30px;
+}
+
+.benefits{
+    display:grid;
+    gap:14px;
+    margin-bottom:30px;
+}
+
+.benefit{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.check{
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.benefit span:last-child{
+    color:#ddd;
+}
+
+/* =========================================================
+   VSL
+========================================================= */
+
+.vsl-section{
+    max-width:950px;
+    margin:auto;
+    text-align:center;
+}
+
+.vsl-section h2{
+    font-size:46px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.vsl-section h2 span{
+    color:var(--gold);
+}
+
+.vsl-section > p{
+    color:var(--gray);
+    margin-bottom:30px;
+}
+
+.video-box{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:18px;
+    overflow:hidden;
+    background:#111;
+    border:1px solid #303030;
+    box-shadow:0 25px 70px rgba(0,0,0,.5);
+    margin-bottom:30px;
+}
+
+.video-box iframe{
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+.vsl-placeholder{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:15px;
+    color:#888;
+    padding:20px;
+}
+
+.play-icon{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:var(--gold);
+    color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+}
+
+/* =========================================================
+   OFERTA
+========================================================= */
+
+.offer{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.offer h2{
+    font-size:52px;
+    line-height:1.05;
+    margin-bottom:15px;
+}
+
+.offer h2 span{
+    color:var(--gold);
+}
+
+.offer-subtitle{
+    color:var(--gray);
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.price-box{
+    background:linear-gradient(145deg,#191919,#0d0d0d);
+    border:1px solid var(--gold);
+    border-radius:22px;
+    padding:35px;
+    margin:30px 0;
+}
+
+.old-price{
+    color:#777;
+    text-decoration:line-through;
+    font-size:20px;
+}
+
+.new-price{
+    color:var(--gold);
+    font-size:75px;
+    font-weight:900;
+    line-height:1;
+    margin:8px 0;
+}
+
+.currency{
+    font-size:25px;
+}
+
+.discount{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:30px;
+    background:rgba(245,197,66,.12);
+    color:var(--gold);
+    font-size:13px;
+    font-weight:bold;
+}
+
+.urgency{
+    margin:20px 0;
+    color:#ddd;
+}
+
+.urgency strong{
+    color:var(--gold);
+}
+
+.guarantee{
+    margin-top:20px;
+    color:#888;
+    font-size:13px;
+}
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+.final-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.final-box h2{
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.final-box h2 span{
+    color:var(--gold);
+}
+
+.final-box p{
+    color:var(--gray);
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.final-list{
+    text-align:left;
+    max-width:500px;
+    margin:0 auto 30px;
+    display:grid;
+    gap:13px;
+}
+
+.final-list div{
+    padding:15px;
+    background:#151515;
+    border-radius:10px;
+}
+
+.final-list span{
+    color:var(--gold);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#666;
+    font-size:12px;
+    border-top:1px solid #1c1c1c;
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    z-index:1000;
+    transition:.3s ease;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:800px){
+
+    header{
+        padding:20px;
+    }
+
+    .stage{
+        padding:50px 20px;
+    }
+
+    h1{
+        font-size:43px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .quiz-header h2{
+        font-size:30px;
+    }
+
+    .question{
+        padding:25px 18px;
+    }
+
+    .question h3{
+        font-size:21px;
+    }
+
+    .book-section{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .book-cover{
+        min-height:480px;
+    }
+
+    .book{
+        width:290px;
+        min-height:420px;
+    }
+
+    .book-content h2{
+        font-size:35px;
+    }
+
+    .vsl-section h2{
+        font-size:34px;
+    }
+
+    .offer h2{
+        font-size:38px;
+    }
+
+    .new-price{
+        font-size:60px;
+    }
+
+    .final-box h2{
+        font-size:37px;
+    }
+
+    .quiz-controls{
+        flex-direction:column;
+    }
+
+    .quiz-controls .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     PROGRESSO DO FUNIL
+========================================================= -->
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<header>
+    <div class="logo">
+        A Ciência <span>da Riqueza</span>
+    </div>
+</header>
+
+<main>
+
+<!-- =========================================================
+     ETAPA 1 — ENTRADA
+========================================================= -->
+
+<section class="stage active" id="stage1">
+
+    <div class="container">
+
+        <div class="hero">
+
+            <div class="badge">
+                DIAGNÓSTICO FINANCEIRO
+            </div>
+
+            <h1>
+                Você está construindo sua <span>riqueza</span>...
+                ou apenas tentando sobreviver?
+            </h1>
+
+            <p>
+                Responda algumas perguntas rápidas e descubra
+                como você atualmente se relaciona com dinheiro,
+                oportunidades e crescimento financeiro.
+            </p>
+
+            <button class="btn btn-primary" onclick="goToStage(2)">
+                FAZER MEU DIAGNÓSTICO →
+            </button>
+
+            <div class="small-text">
+                Leva menos de 2 minutos • Gratuito
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ETAPA 2 — DIAGNÓSTICO
+========================================================= -->
+
+<section class="stage" id="stage2">
+
+    <div class="container">
+
+        <div class="quiz-box">
+
+            <div class="quiz-header">
+
+                <div class="badge">
+                    SEU DIAGNÓSTICO
+                </div>
+
+                <h2>
+                    Vamos descobrir seu perfil
+                </h2>
+
+                <p>
+                    Responda com sinceridade. Não existem respostas certas ou erradas.
+                </p>
+
+            </div>
+
+            <div class="quiz-progress">
+
+                <div class="quiz-progress-top">
+                    <span id="questionCounter">Pergunta 1 de 5</span>
+                    <span id="questionPercent">20%</span>
+                </div>
+
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quizProgress"></div>
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 1 -->
+
+            <div class="question active" data-question="1">
+
+                <div class="question-number">
+                    Pergunta 01
+                </div>
+
+                <h3>
+                    Quando você recebe dinheiro, o que normalmente acontece?
+                </h3>
+
+                <div class="options">
+
+                    <button class="option" data-score="1">
+                        Gasto rapidamente e depois fico sem dinheiro.
+                    </button>
+
+                    <button class="option" data-score="2">
+                        Pago as contas e tento guardar alguma coisa.
+                    </button>
+
+                    <button class="option" data-score="3">
+                        Procuro organizar e separar uma parte para objetivos.
+                    </button>
+
+                    <button class="option" data-score="4">
+                        Penso em como fazer esse dinheiro crescer.
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 2 -->
+
+            <div class="question" data-question="2">
+
+                <div class="question-number">
+                    Pergunta 02
+                </div>
+
+                <h3>
+                    Como você se sente quando pensa no seu futuro financeiro?
+                </h3>
+
+                <div class="options">
+
+                    <button class="option" data-score="1">
+                        Fico preocupado(a).
+                    </button>
+
+                    <button class="option" data-score="2">
+                        Tenho algumas dúvidas.
+                    </button>
+
+                    <button class="option" data-score="3">
+                        Tenho planos, mas ainda não sei exatamente como chegar lá.
+                    </button>
+
+                    <button class="option" data-score="4">
+                        Tenho objetivos claros e estou trabalhando neles.
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 3 -->
+
+            <div class="question" data-question="3">
+
+                <div class="question-number">
+                    Pergunta 03
+                </div>
+
+                <h3>
+                    Qual destas frases mais combina com você?
+                </h3>
+
+                <div class="options">
+
+                    <button class="option" data-score="1">
+                        Dinheiro parece nunca ser suficiente.
+                    </button>
+
+                    <button class="option" data-score="2">
+                        Consigo me organizar, mas ainda tenho dificuldades.
+                    </button>
+
+                    <button class="option" data-score="3">
+                        Quero aprender mais sobre dinheiro.
+                    </button>
+
+                    <button class="option" data-score="4">
+                        Quero aprender a multiplicar meus recursos.
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 4 -->
+
+            <div class="question" data-question="4">
+
+                <div class="question-number">
+                    Pergunta 04
+                </div>
+
+                <h3>
+                    O que mais impede você de avançar financeiramente?
+                </h3>
+
+                <div class="options">
+
+                    <button class="option" data-score="1">
+                        Falta de dinheiro.
+                    </button>
+
+                    <button class="option" data-score="2">
+                        Falta de organização.
+                    </button>
+
+                    <button class="option" data-score="3">
+                        Falta de conhecimento.
+                    </button>
+
+                    <button class="option" data-score="4">
+                        Falta de uma estratégia clara.
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 5 -->
+
+            <div class="question" data-question="5">
+
+                <div class="question-number">
+                    Pergunta 05
+                </div>
+
+                <h3>
+                    Se você aprendesse uma nova forma de pensar sobre dinheiro, você...
+                </h3>
+
+                <div class="options">
+
+                    <button class="option" data-score="1">
+                        Provavelmente não faria muita coisa.
+                    </button>
+
+                    <button class="option" data-score="2">
+                        Gostaria de tentar algumas mudanças.
+                    </button>
+
+                    <button class="option" data-score="3">
+                        Começaria a aplicar o que aprendesse.
+                    </button>
+
+                    <button class="option" data-score="4">
+                        Procuraria transformar isso em novos hábitos.
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="quiz-controls">
+
+                <button
+                    class="btn btn-secondary"
+                    id="backQuestion"
+                    onclick="previousQuestion()"
+                    style="display:none;">
+                    ← Voltar
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    id="nextQuestion"
+                    onclick="nextQuestion()"
+                    disabled>
+                    Próxima →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ETAPA 3 — RESULTADO
+========================================================= -->
+
+<section class="stage" id="stage3">
+
+    <div class="container">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                💡
+            </div>
+
+            <div class="badge">
+                SEU RESULTADO
+            </div>
+
+            <h2>
+                Seu perfil é:
+                <span id="profileName">Em evolução</span>
+            </h2>
+
+            <p id="profileDescription">
+                Você já percebeu que precisa mudar sua relação com o dinheiro,
+                mas ainda pode desenvolver uma estratégia mais clara.
+            </p>
+
+            <div class="insight">
+
+                <strong>O ponto principal:</strong>
+
+                <br><br>
+
+                Ter mais dinheiro não significa necessariamente saber
+                administrar ou multiplicar dinheiro. Conhecimento,
+                hábitos e decisões também fazem parte da construção
+                financeira.
+
+            </div>
+
+            <button
+                class="btn btn-primary btn-large"
+                onclick="goToStage(4)">
+                QUERO DESCOBRIR COMO →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ETAPA 4 — EBOOK + VSL
+========================================================= -->
+
+<section class="stage" id="stage4">
+
+    <div class="container">
+
+        <div class="book-section">
+
+            <div class="book-cover">
+
+                <div class="book">
+
+                    <div class="book-top">
+                        EBOOK DIGITAL
+                    </div>
+
+                    <div class="book-title">
+                        A CIÊNCIA
+                        <br>
+                        <span>DA RIQUEZA</span>
+                    </div>
+
+                    <div class="book-bottom">
+                        Conhecimento • Mentalidade • Estratégia
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="book-content">
+
+                <div class="badge">
+                    CONHEÇA O EBOOK
+                </div>
+
+                <h2>
+                    Seu próximo passo pode começar com uma nova
+                    <span>forma de pensar.</span>
+                </h2>
+
+                <p>
+                    Depois do seu diagnóstico, chegou o momento de aprofundar
+                    o conhecimento sobre dinheiro, comportamento financeiro,
+                    oportunidades e construção de riqueza.
+                </p>
+
+                <div class="benefits">
+
+                    <div class="benefit">
+                        <span class="check">✓</span>
+                        <span>Entenda princípios relacionados à construção de riqueza.</span>
+                    </div>
+
+                    <div class="benefit">
+                        <span class="check">✓</span>
+                        <span>Reflita sobre seus hábitos e decisões financeiras.</span>
+                    </div>
+
+                    <div class="benefit">
+                        <span class="check">✓</span>
+                        <span>Desenvolva uma mentalidade mais estratégica.</span>
+                    </div>
+
+                    <div class="benefit">
+                        <span class="check">✓</span>
+                        <span>Transforme conhecimento em ações práticas.</span>
+                    </div>
+
+                </div>
+
+                <button
+                    class="btn btn-primary btn-large"
+                    onclick="goToStage(5)">
+                    QUERO VER A APRESENTAÇÃO →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ETAPA 5 — VSL + OFERTA
+========================================================= -->
+
+<section class="stage" id="stage5">
+
+    <div class="container">
+
+        <div class="vsl-section">
+
+            <div class="badge">
+                ASSISTA À APRESENTAÇÃO
+            </div>
+
+            <h2>
+                Antes de decidir,
+                <span>assista à VSL.</span>
+            </h2>
+
+            <p>
+                Entenda a proposta do ebook e veja se ele faz sentido
+                para o momento financeiro que você está vivendo.
+            </p>
+
+
+            <!-- =================================================
+                 COLOQUE SUA VSL AQUI
+            ================================================== -->
+
+            <div class="video-box">
+
+              
+                SUBSTITUA O LINK ABAIXO PELO LINK/EMBED DA SUA VSL.
+
+                Exemplo YouTube:
+                <iframe
+                    src="https://www.youtube.com/embed/l4ssNnrK1IA"
+                    allowfullscreen>
+                </iframe>
+           
+
+                <div class="vsl-placeholder">
+
+                    <div class="play-icon">
+                        ▶
+                    </div>
+
+                    <strong>
+                        SUA VSL SERÁ EXIBIDA AQUI
+                    </strong>
+
+                    <span>
+                        Substitua este bloco pelo seu vídeo.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 OFERTA
+            ================================================== -->
+
+            <div class="offer">
+
+                <div class="badge">
+                    OFERTA ESPECIAL
+                </div>
+
+                <h2>
+                    Comece sua jornada por apenas
+                    <span>99 MT</span>
+                </h2>
+
+                <p class="offer-subtitle">
+                    O acesso ao ebook está atualmente com uma condição
+                    especial.
+                </p>
+
+                <div class="price-box">
+
+                    <div class="old-price">
+                        Antes: 350 MT
+                    </div>
+
+                    <div class="new-price">
+                        99 <span class="currency">MT</span>
+                    </div>
+
+                    <div class="discount">
+                        CONDIÇÃO ESPECIAL
+                    </div>
+
+                </div>
+
+                <div class="urgency">
+                    O preço apresentado nesta página é de
+                    <strong>99 MT</strong>.
+                </div>
+
+                <!-- =================================================
+                     COLOQUE SEU CHECKOUT AQUI
+                ================================================== -->
+
+                <a
+                    href="https://checkout.escalepay.com/7853368"
+                    class="btn btn-primary btn-large"
+                    id="checkoutButton">
+                    🔥 QUERO COMPRAR O EBOOK POR 99 MT
+                </a>
+
+                <div class="guarantee">
+                    🔒 Pagamento realizado através do seu checkout seguro.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    © 2026 A Ciência da Riqueza • Todos os direitos reservados.
+</footer>
+
+
+<!-- =========================================================
+     WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/258847648786?text=Olá!%20Vi%20o%20ebook%20A%20Ciência%20da%20Riqueza%20e%20gostaria%20de%20saber%20mais."
+    class="whatsapp"
+    target="_blank"
+    aria-label="WhatsApp">
+    ☎
+</a>
+
+
+<script>
+
+/* =========================================================
+   CONFIGURAÇÕES
+========================================================= */
+
+let currentStage = 1;
+
+let currentQuestion = 1;
+
+const totalQuestions = 5;
+
+let totalScore = 0;
+
+let selectedAnswers = {};
+
+
+/* =========================================================
+   MUDAR ETAPA
+========================================================= */
+
+function goToStage(stage){
+
+    document.querySelectorAll(".stage").forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    const target = document.getElementById("stage" + stage);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    currentStage = stage;
+
+    updateProgress();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESSO DO FUNIL
+========================================================= */
+
+function updateProgress(){
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    let percentage = currentStage * 20;
+
+    if(percentage > 100){
+        percentage = 100;
+    }
+
+    progressBar.style.width = percentage + "%";
+}
+
+
+/* =========================================================
+   SELEÇÃO DAS RESPOSTAS
+========================================================= */
+
+document.querySelectorAll(".option").forEach(option=>{
+
+    option.addEventListener("click",function(){
+
+        const question =
+            this.closest(".question");
+
+        const questionNumber =
+            parseInt(question.dataset.question);
+
+        question
+            .querySelectorAll(".option")
+            .forEach(item=>{
+                item.classList.remove("selected");
+            });
+
+        this.classList.add("selected");
+
+        selectedAnswers[questionNumber] =
+            parseInt(this.dataset.score);
+
+        document.getElementById("nextQuestion")
+            .disabled = false;
+
+    });
+
+});
+
+
+/* =========================================================
+   PRÓXIMA PERGUNTA
+========================================================= */
+
+function nextQuestion(){
+
+    if(!selectedAnswers[currentQuestion]){
+        return;
+    }
+
+    if(currentQuestion < totalQuestions){
+
+        currentQuestion++;
+
+        showQuestion(currentQuestion);
+
+    }else{
+
+        calculateResult();
+
+    }
+
+}
+
+
+/* =========================================================
+   PERGUNTA ANTERIOR
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 1){
+
+        currentQuestion--;
+
+        showQuestion(currentQuestion);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOSTRAR PERGUNTA
+========================================================= */
+
+function showQuestion(number){
+
+    document.querySelectorAll(".question")
+        .forEach(q=>{
+            q.classList.remove("active");
+        });
+
+    const question =
+        document.querySelector(
+            `.question[data-question="${number}"]`
+        );
+
+    if(question){
+        question.classList.add("active");
+    }
+
+    const counter =
+        document.getElementById("questionCounter");
+
+    const percent =
+        document.getElementById("questionPercent");
+
+    const progress =
+        document.getElementById("quizProgress");
+
+    counter.textContent =
+        `Pergunta ${number} de ${totalQuestions}`;
+
+    const percentage =
+        Math.round((number / totalQuestions) * 100);
+
+    percent.textContent =
+        percentage + "%";
+
+    progress.style.width =
+        percentage + "%";
+
+    document.getElementById("backQuestion")
+        .style.display =
+        number === 1 ? "none" : "inline-flex";
+
+    const nextButton =
+        document.getElementById("nextQuestion");
+
+    nextButton.disabled =
+        !selectedAnswers[number];
+
+    nextButton.textContent =
+        number === totalQuestions
+        ? "VER MEU RESULTADO →"
+        : "Próxima →";
+
+}
+
+
+/* =========================================================
+   CALCULAR RESULTADO
+========================================================= */
+
+function calculateResult(){
+
+    totalScore = 0;
+
+    Object.values(selectedAnswers)
+        .forEach(score=>{
+            totalScore += score;
+        });
+
+
+    let profileName = "";
+
+    let profileDescription = "";
+
+
+    if(totalScore <= 8){
+
+        profileName = "Em transformação";
+
+        profileDescription =
+        "Você pode estar enfrentando dificuldades relacionadas à organização e à forma como lida com o dinheiro. O primeiro passo é reconhecer seus padrões e começar a desenvolver novos conhecimentos e hábitos.";
+
+    }
+
+    else if(totalScore <= 13){
+
+        profileName = "Em evolução";
+
+        profileDescription =
+        "Você já possui alguma consciência financeira, mas ainda existem oportunidades para melhorar sua organização, conhecimento e estratégia.";
+
+    }
+
+    else if(totalScore <= 17){
+
+        profileName = "Construtor de riqueza";
+
+        profileDescription =
+        "Você demonstra uma boa consciência sobre dinheiro e crescimento. O próximo passo é aprofundar seus conhecimentos e transformar intenção em estratégia.";
+
+    }
+
+    else{
+
+        profileName = "Mentalidade de crescimento";
+
+        profileDescription =
+        "Você demonstra uma forte orientação para crescimento e aprendizagem. O desafio agora é continuar adquirindo conhecimento e aplicá-lo de forma consistente.";
+
+    }
+
+
+    document.getElementById("profileName")
+        .textContent = profileName;
+
+    document.getElementById("profileDescription")
+        .textContent = profileDescription;
+
+
+    goToStage(3);
+
+}
+
+
+/* =========================================================
+   CHECKOUT TRACKING
+========================================================= */
+
+document.getElementById("checkoutButton")
+    .addEventListener("click",function(){
+
+        /*
+        Aqui você pode adicionar Pixel,
+        Google Analytics, Meta Pixel,
+        Google Tag Manager etc.
+
+        Exemplo:
+
+        fbq('track','InitiateCheckout');
+
+        */
+
+        console.log("Cliente clicou no checkout.");
+
+    });
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+updateProgress();
+
+showQuestion(1);
+
+</script>
